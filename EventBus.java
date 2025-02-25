@@ -10,7 +10,6 @@ public class EventBus {
 
     public static void publish(Event e){
         events.add(e);
-        System.out.println(events.size());
     }
 
     public static boolean subscribe(Consumer c, Class<? extends Event> e){
@@ -33,5 +32,6 @@ public class EventBus {
             }
             events.remove(event);
         }
+        events.clear();
     }
 }

@@ -7,8 +7,8 @@ public class DepositoComida implements Consumer{
 
     DepositoComida(int food){
         EventBus.subscribe(this, LowFood.class);
-        EventBus.subscribe(this, ConsumirComida.class);
-        EventBus.subscribe(this, RellenarComida.class);
+        EventBus.subscribe(this, ConsumoComida.class);
+        EventBus.subscribe(this, RellenoComida.class);
         this.food = food;
         this.paused = false;
     }
@@ -16,10 +16,10 @@ public class DepositoComida implements Consumer{
     @Override
     public boolean handle(Event e) {
 
-        if(e instanceof ConsumirComida){
+        if(e instanceof ConsumoComida){
             consumeFood((Integer) e.getData());
             return true;
-        }else if(e instanceof RellenarComida){
+        }else if(e instanceof RellenoComida){
             refillFood((Integer)e.getData());
             return true;
         }
@@ -33,7 +33,7 @@ public class DepositoComida implements Consumer{
         if (food < 300) {
             EventBus.publish(new LowFood(food));
         }
-        EventBus.publish(new ActualizarMedidorComida());
+        EventBus.publish(new ActualizacionMedidorComida());
     }
 
     public void refillFood(int amount) {
@@ -42,7 +42,7 @@ public class DepositoComida implements Consumer{
         }
         food += amount;
         paused = false;
-        EventBus.publish(new ActualizarMedidorComida());
+        EventBus.publish(new ActualizacionMedidorComida());
     }
 
     public int getCurrentFood() {

@@ -8,10 +8,10 @@ public class SensorLuminico {
     public void verificarHoraDeEncender() {
         if ((hora > 20 || hora < 6)) {
             horaDeEncender = true;
-            EventBus.publish(new PrenderLampara());
+            EventBus.publish(new EncendidoLampara());
         }
         else {
-            EventBus.publish(new ApagarLampara());
+            EventBus.publish(new ApagadoLampara());
             horaDeEncender = false;
         }
     }

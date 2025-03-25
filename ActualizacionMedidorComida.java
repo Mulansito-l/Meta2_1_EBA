@@ -1,9 +1,9 @@
 /**
  * ActualizarMedidorComida
  */
-public class ActualizarMedidorComida implements Event{
+public class ActualizacionMedidorComida implements Event{
     
-    ActualizarMedidorComida(){
+    ActualizacionMedidorComida(){
 
     }
 

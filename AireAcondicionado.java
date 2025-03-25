@@ -16,10 +16,10 @@ public class AireAcondicionado implements Consumer{
         if (e instanceof Temperatura) {
             Temperatura tempEvent = (Temperatura) e;
             if ((Double) tempEvent.getData() > limite) {
-                EventBus.publish(new EncenderAire());
+                EventBus.publish(new EncendidoAire());
                 return true;
             }else{
-                EventBus.publish(new ApagarAire());
+                EventBus.publish(new ApagadoAire());
                 return false;
             }
         }

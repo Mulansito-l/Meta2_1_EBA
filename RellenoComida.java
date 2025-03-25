@@ -1,10 +1,10 @@
 /**
  * RellenarComida
  */
-public class RellenarComida implements Event{
+public class RellenoComida implements Event{
     int cantidad;
 
-    RellenarComida(int cantidad){
+    RellenoComida(int cantidad){
         this.cantidad = cantidad;
     }
 

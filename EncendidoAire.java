@@ -1,12 +1,13 @@
 /**
- * ApagarAire
+ * EncenderAire
  */
-public class ApagarAire implements Event{
+public class EncendidoAire implements Event{
+
     @Override
     public String getName() {
-        return "Apagar aire";
+        return "Encender aire";
     }
-
+    
     @Override
     public Object getData() {
         return null;

@@ -1,7 +1,8 @@
 /**
- * PrenderLampara
+ * ApagarLampara
  */
-public class PrenderLampara implements Event{
+public class ApagadoLampara implements Event{
+
     @Override
     public String getName() {
         return "";
@@ -11,4 +12,5 @@ public class PrenderLampara implements Event{
     public Object getData() {
         return null;
     }
+    
 }

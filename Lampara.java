@@ -4,17 +4,17 @@ public class Lampara implements Consumer{
     @Override
     public boolean handle(Event e) {
 
-        if (e instanceof PrenderLampara){
+        if (e instanceof EncendidoLampara){
             encendida = true;
         }
-        else if (e instanceof ApagarLampara){
+        else if (e instanceof ApagadoLampara){
             encendida = false;
         }
         return true;
     }
 
     public Lampara() {
-        EventBus.subscribe(this, PrenderLampara.class);
-        EventBus.subscribe(this, ApagarLampara.class);
+        EventBus.subscribe(this, EncendidoLampara.class);
+        EventBus.subscribe(this, ApagadoLampara.class);
     }
 }

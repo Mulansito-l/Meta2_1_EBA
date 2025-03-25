@@ -33,11 +33,11 @@ public class GUI implements Consumer{
 
     GUI(Casa casa){
         EventBus.subscribe(this, LowFood.class);
-        EventBus.subscribe(this, ActualizarMedidorComida.class);
-        EventBus.subscribe(this, EncenderAire.class);
-        EventBus.subscribe(this, ApagarAire.class);
-        EventBus.subscribe(this, PrenderLampara.class);
-        EventBus.subscribe(this, ApagarLampara.class);
+        EventBus.subscribe(this, ActualizacionMedidorComida.class);
+        EventBus.subscribe(this, EncendidoAire.class);
+        EventBus.subscribe(this, ApagadoAire.class);
+        EventBus.subscribe(this, EncendidoLampara.class);
+        EventBus.subscribe(this, ApagadoLampara.class);
 
         this.casa = casa;
         ventanaPrincipal = new JFrame("Monitoreo de la casa");
@@ -88,14 +88,14 @@ public class GUI implements Consumer{
         consumirComida.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EventBus.publish(new ConsumirComida(200));
+                EventBus.publish(new ConsumoComida(200));
             }
         });
 
         rellenarComida.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EventBus.publish(new RellenarComida(100));
+                EventBus.publish(new RellenoComida(100));
             }
         });
 
@@ -120,15 +120,15 @@ public class GUI implements Consumer{
         if(e instanceof LowFood){
             JOptionPane.showMessageDialog(null, "YA NO TIENE COMIDA EL PERRO :-C");
             return true;
-        }else if(e instanceof ActualizarMedidorComida){
+        }else if(e instanceof ActualizacionMedidorComida){
             lComida.setText("Comida restante: " + casa.getRemainingFood().toString());
-        }else if( e instanceof EncenderAire){
+        }else if( e instanceof EncendidoAire){
             aire.setText("Aire acondicionado: Encendido");
-        }else if( e instanceof ApagarAire){
+        }else if( e instanceof ApagadoAire){
             aire.setText("Aire acondicionado: Apagado");
-        }else if( e instanceof ApagarLampara){
+        }else if( e instanceof ApagadoLampara){
             luz.setText("Luz: Apagado"); 
-        }else if( e instanceof PrenderLampara){
+        }else if( e instanceof EncendidoLampara){
             luz.setText("Luz: Encendido"); 
 
         }
